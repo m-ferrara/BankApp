@@ -1,7 +1,7 @@
 package com.groupthree.bankapp.controller;
 
-import com.groupthree.bankapp.entity.Account;
-import com.groupthree.bankapp.entity.AccountRequest;
+import com.groupthree.bankapp.model.entity.Account;
+import com.groupthree.bankapp.model.request.AccountRequest;
 import com.groupthree.bankapp.exception.AccountNotFoundException;
 import com.groupthree.bankapp.exception.AccountTypeNotSupportedException;
 import com.groupthree.bankapp.service.AccountService;
@@ -40,6 +40,6 @@ public class AccountController {
     @DeleteMapping("/{accId}")
     public ResponseEntity<String> deleteAccount(@PathVariable String accId) throws AccountNotFoundException {
         service.deleteAccount(accId);
-        return new ResponseEntity<String>("Account was deleted", new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>("Account was deleted", new HttpHeaders(), HttpStatus.OK);
     }
 }
