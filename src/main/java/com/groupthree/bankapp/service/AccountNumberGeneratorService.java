@@ -12,7 +12,6 @@ public class AccountNumberGeneratorService {
         this.random = new Random();
     }
 
-
     public String generate() {
         StringBuilder accountNumber = new StringBuilder();
         int accountNumberDigits = 16;
