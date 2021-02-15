@@ -6,14 +6,20 @@ import java.util.Random;
 
 @Service
 public class AccountNumberGeneratorService {
+    private Random random;
+
+    public AccountNumberGeneratorService() {
+        this.random = new Random();
+    }
+
+
     public String generate() {
-        Random random = new Random();
-        String accountNumber = "";
+        StringBuilder accountNumber = new StringBuilder();
         int accountNumberDigits = 16;
         for (int i=0; i<accountNumberDigits; i++) {
-            int randInt = random.nextInt(9);
-            accountNumber += String.valueOf(randInt);
+            int randInt = this.random.nextInt(9);
+            accountNumber.append(String.valueOf(randInt));
         }
-        return accountNumber;
+        return accountNumber.toString();
     }
 }

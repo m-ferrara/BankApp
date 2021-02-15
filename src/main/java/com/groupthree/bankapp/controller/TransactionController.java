@@ -21,6 +21,6 @@ public class TransactionController {
     public ResponseEntity<Account> processTransaction(@PathVariable String accId, @RequestBody TransactionRequest transactionRequest)
             throws TransactionTypeNotSupportedException, AccountNotFoundException {
         Account account = service.processTransaction(transactionRequest.getType(), accId, transactionRequest.getAmount());
-        return new ResponseEntity<Account>(account, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(account, new HttpHeaders(), HttpStatus.OK);
     }
 }

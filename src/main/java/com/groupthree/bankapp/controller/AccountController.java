@@ -40,6 +40,6 @@ public class AccountController {
     @DeleteMapping("/{accId}")
     public ResponseEntity<String> deleteAccount(@PathVariable String accId) throws AccountNotFoundException {
         service.deleteAccount(accId);
-        return new ResponseEntity<String>("Account was deleted", new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>("Account was deleted", new HttpHeaders(), HttpStatus.OK);
     }
 }

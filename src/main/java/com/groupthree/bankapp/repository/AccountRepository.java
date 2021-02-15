@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
     default Account findByAccountNumber(String accNumber) throws AccountNotFoundException {
-        Optional<Account> account = this.findAll().stream().filter((acc)->acc.getAcctNumber().equals(accNumber)).findFirst();
+        Optional<Account> account = this.findAll().stream().filter(acc -> acc.getAcctNumber().equals(accNumber)).findFirst();
         if (account.isPresent()) {
             return account.get();
         } else {

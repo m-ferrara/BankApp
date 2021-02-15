@@ -9,5 +9,4 @@ public class FirstDateOfMonthValidationService {
     public boolean isFirstDayOfTheMonth() {
         return Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == 1;
     }
-
 }

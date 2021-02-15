@@ -1,7 +1,6 @@
 package com.groupthree.bankapp.model.entity;
 
 import javax.persistence.Entity;
-import java.time.LocalDate;
 
 @Entity
 public class InterestAccount extends Account {
