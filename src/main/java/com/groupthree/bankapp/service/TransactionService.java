@@ -1,12 +1,8 @@
 package com.groupthree.bankapp.service;
 
-import com.groupthree.bankapp.entity.Account;
-import com.groupthree.bankapp.entity.CheckingAccount;
-import com.groupthree.bankapp.entity.InterestAccount;
-import com.groupthree.bankapp.entity.RegularAccount;
+import com.groupthree.bankapp.model.entity.Account;
 import com.groupthree.bankapp.exception.AccountNotFoundException;
 import com.groupthree.bankapp.exception.TransactionTypeNotSupportedException;
-import com.groupthree.bankapp.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +28,8 @@ public class TransactionService {
                 throw new TransactionTypeNotSupportedException();
             }
         }
-        Account newAcc = service.updateAccount(account);
+
+        service.updateAccount(account);
         return account;
     }
 }

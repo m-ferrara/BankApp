@@ -1,6 +1,6 @@
 package com.groupthree.bankapp.repository;
 
-import com.groupthree.bankapp.entity.Account;
+import com.groupthree.bankapp.model.entity.Account;
 import com.groupthree.bankapp.exception.AccountNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
