@@ -55,7 +55,7 @@ public class TransactionService {
                 if (intAccount.getLastDateSinceTransactionCharged() != null && !intAccount.getLastDateSinceTransactionCharged().equals(LocalDate.now())) {
                     doApplyInterest = true;
                 }
-                else if (intAccount.getLastDateSinceTransactionCharged() == null){
+                else if (intAccount.getLastDateSinceTransactionCharged() == null) {
                     doApplyInterest = true;
                 }
             }
