@@ -1,10 +1,14 @@
 package com.groupthree.bankapp.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.groupthree.bankapp.exception.AccountTypeNotSupportedException;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -39,6 +43,8 @@ public abstract class Account {
     private double interestCharge;
 
     private double amount;
+
+    private LocalDate lastDateSinceTransactionCharged;
 
     /**
      * Factory method to create new instances of the Account child classes
@@ -153,6 +159,15 @@ public abstract class Account {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    @JsonIgnore
+    public LocalDate getLastDateSinceTransactionCharged() {
+        return this.lastDateSinceTransactionCharged;
+    }
+
+    public void setLastDateSinceTransactionCharged(LocalDate lastDateSinceTransactionCharged) {
+        this.lastDateSinceTransactionCharged = lastDateSinceTransactionCharged;
     }
 
 }
