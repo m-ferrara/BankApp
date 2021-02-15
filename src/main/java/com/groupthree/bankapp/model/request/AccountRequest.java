@@ -1,4 +1,4 @@
-package com.groupthree.bankapp.entity;
+package com.groupthree.bankapp.model.request;
 
 public class AccountRequest {
     private String name;

@@ -1,4 +1,4 @@
-package com.groupthree.bankapp.entity;
+package com.groupthree.bankapp.model.entity;
 
 import javax.persistence.Entity;
 

@@ -1,6 +1,9 @@
-package com.groupthree.bankapp.entity;
+package com.groupthree.bankapp.model.request;
 
 public class TransactionRequest {
+    private String type;
+    private double amount;
+
     public String getType() {
         return type;
     }
@@ -16,7 +19,4 @@ public class TransactionRequest {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-
-    private String type;
-    private double amount;
 }
