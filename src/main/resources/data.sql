@@ -1,2 +1,2 @@
-INSERT INTO User (id, username, password, salary, age) VALUES (1, 'John123', 'password', 50000, 30);
-INSERT INTO User (id, username, password, salary, age) VALUES (1, 'Pam123', 'password', 53000, 33);
+INSERT INTO User (id, username, password, salary, age) VALUES (1, 'John123', '$2y$12$rDjFNLlaU0tW4GGchbtkau3lRWY1aPgf6dRC4eOpp0Q9Kc4UAEewO', 50000, 30);
+INSERT INTO User (id, username, password, salary, age) VALUES (2, 'Pam123', '$2y$12$rDjFNLlaU0tW4GGchbtkau3lRWY1aPgf6dRC4eOpp0Q9Kc4UAEewO', 53000, 33);

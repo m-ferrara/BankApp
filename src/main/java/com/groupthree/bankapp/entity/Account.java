@@ -1,47 +1,55 @@
 package com.groupthree.bankapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.groupthree.bankapp.entity.CheckingAccount;
-import com.groupthree.bankapp.entity.InterestAccount;
-import com.groupthree.bankapp.entity.RegularAccount;
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
-        property = "type")
+        include = JsonTypeInfo.As.EXISTING_PROPERTY,
+        property = "type",
+        visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = RegularAccount.class, name = "regular"),
         @JsonSubTypes.Type(value = CheckingAccount.class, name = "checking"),
         @JsonSubTypes.Type(value = InterestAccount.class, name = "interest")
 })
-public abstract class Account {
+public abstract class Account extends Auditable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
 
-    private String acctNumber;
+    @Column(name="account_number")
+    private String accountNumber;
 
     protected double balance;
 
+    @Column(name="minimum_balance")
     private double minimumBalance;
 
     private boolean didPassMinimumBalance;
 
     private double penalty;
 
+    @Column(name="transaction_charge")
     private double transactionCharge;
 
+    @Column(name="interest_charge")
     private double interestCharge;
 
     private double amount;
+
+    @JsonProperty("type")
+    private String type;
 
     public Long getId() {
         return id;
@@ -59,12 +67,12 @@ public abstract class Account {
         this.name = name;
     }
 
-    public String getAcctNumber() {
-        return acctNumber;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setAcctNumber(String acctNumber) {
-        this.acctNumber = acctNumber;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getBalance() {
@@ -122,4 +130,11 @@ public abstract class Account {
         this.amount = amount;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

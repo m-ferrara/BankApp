@@ -49,12 +49,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anonymous().disable()
                 .authorizeRequests()
                 .antMatchers("/api-docs/**").permitAll();
+
+        http.headers().frameOptions().sameOrigin();
+        http.csrf().ignoringAntMatchers("/h2-console/**");
+        http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
     }
 
-    @Bean
-    public TokenStore tokenStore() {
-        return new InMemoryTokenStore();
-    }
+//    @Bean
+//    public TokenStore tokenStore() {
+//        return new InMemoryTokenStore();
+//    }
 
     @Bean
     public BCryptPasswordEncoder encoder() {

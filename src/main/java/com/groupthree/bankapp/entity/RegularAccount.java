@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 
 @Entity
 public class RegularAccount extends MinimumBalanceAccount {
+    public RegularAccount(Account account){
+
+    }
     public RegularAccount() {
         super();
         setBalance(500);

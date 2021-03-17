@@ -3,7 +3,6 @@ package com.groupthree.bankapp.service;
 import com.groupthree.bankapp.entity.User;
 import com.groupthree.bankapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,13 +11,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
     @Autowired
     private UserRepository userRepo;
+
+    public UserServiceImpl(UserRepository userRepo) {
+        this.userRepo = userRepo;
+    }
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepo.findByUsername(username);
@@ -39,8 +41,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public void delete(long id) {
-        userRepo.delete(id);
+    public void deleteById(long id) {
+        userRepo.deleteById(id);
     }
 
     @Override
