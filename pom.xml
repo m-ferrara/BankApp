@@ -8,11 +8,11 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.groupthree</groupId>
-	<artifactId>bankapp</artifactId>
+	<groupId>com.mattf</groupId>
+	<artifactId>employeeskills</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bankapp</name>
-	<description>Group 3 Bank App</description>
+	<name>employeeskills</name>
+	<description>Employee Skills App</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -38,6 +38,15 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-jwt</artifactId>
 			<version>1.1.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
